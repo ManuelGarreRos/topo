@@ -3,16 +3,16 @@
 Custom Golang framework to build web applications fast and easy.
 
 ### Install TOPO cli
-
-    ```go install "github.com/ManuelGarreRos/topo@latest"
+    
+    go install "github.com/ManuelGarreRos/topo@latest"
 
 ### Create a new project
 
-    ```topo new
+    topo new
 
 ### Run the project
 
-    ```topo start
+    topo start
 
 ### Ports
 
