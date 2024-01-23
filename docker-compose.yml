@@ -1,0 +1,40 @@
+version: "3.3"
+
+services:
+  db:
+    image: postgres
+    container_name: TOPO-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: TOPO
+    ports:
+      - 5432:5432
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+  backend:
+    build:
+      context: .
+      dockerfile: ./dockers/backend/Dockerfile
+    container_name: TOPO-backend
+    depends_on:
+      - db
+    ports:
+      - 8000:8000
+      - 7777:7777
+      - 40000:40000
+    volumes:
+      - ./:/src
+    environment:
+      - TOPO_DOMAIN=localhost
+      - TOPO_ENV=localhost
+      - TOPO_DB=postgres://postgres:postgres@db:5432/TOPO
+      - TOPO_PORT=:8000
+      - TOPO_MIGRATIONS=true
+      - TOPO_FIXTURES=true
+      - TOPO_GO_VENDOR=true
+      - TOPO_GO_GET=true
+      - TOPO_GO_SERVER=true
+      - TOPO_GO_DEBUG=true
+      - TOPO_URL_ENV=http://localhost:3000
+    command: bash -c "/src/init.sh"

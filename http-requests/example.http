@@ -1,0 +1,13 @@
+### API CALL EXAMPLES ###
+#POST http://0.0.0.0:8000/users/create/
+#Content-Type: application/json
+#
+#{
+#  "id": "c6b015cf-e82e-4e63-9b89-996e3a139b3d",
+#  "name": "Manuel",
+#  "last_name": "Fresneda Llamas",
+#  "email": "mfresneda@aicrumit.com",
+#  "street": "Calle random"
+#}
+###
+#GET http://localhost:8000/users/list
