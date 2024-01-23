@@ -173,9 +173,23 @@ func main() {
 		},
 	}
 
+	var stopCmd = &cobra.Command{
+		Use:   "stop",
+		Short: "Stop TOPO app",
+		Run: func(cmd *cobra.Command, args []string) {
+			fmt.Println("Stopping app...")
+			err := exec.Command("docker-compose", "down").Run()
+			if err != nil {
+				fmt.Println("Error:", err)
+				os.Exit(1)
+			}
+		},
+	}
+
 	rootCmd.AddCommand(createCmd)
 	rootCmd.AddCommand(versionCmd)
 	rootCmd.AddCommand(initCmd)
+	rootCmd.AddCommand(stopCmd)
 
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
