@@ -1,4 +1,4 @@
-module github.com/ManuelGarreRos/topo
+module TOPO
 
 go 1.21
 
