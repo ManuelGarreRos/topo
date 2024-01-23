@@ -14,7 +14,7 @@ import (
 const (
 	// AppName is the name of the application
 	AppName        = "topo"
-	Version        = "0.2.0"
+	Version        = "0.2.1"
 	AppCtrDir      = "appctr"
 	MiddlewaresDir = "cmd/middlewares"
 	CommonDir      = "common"
